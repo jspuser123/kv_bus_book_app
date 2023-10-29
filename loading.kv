@@ -1,0 +1,96 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+#:import Gradient kivy_gradient.Gradient
+
+<Box@MDBoxLayout>:
+    id:boxcolor
+    spacing:"3dp"
+    padding:'2dp'
+<Grd@MDGridLayout>:
+
+<Lyt@MDRelativeLayout>:
+<Crd@MDCard>:     
+<Txt1@MDTextField>:
+    id:txtin
+    md_bg_color:app.theme_cls.primary_palette
+
+<IBtn2@MDIconButton>:
+<Btn1@MDRaisedButton>:
+<Lbl@MDLabel>:
+<Img@Image>:
+<Fimg@FitImage>:
+
+<Loading_screen>:
+    Box:
+        orientation:'vertical'
+        canvas.before:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                texture: 
+                    Gradient.vertical(
+                    get_color_from_hex("#3E55B1"),
+                    get_color_from_hex("#3144A4"),
+                    get_color_from_hex("#2A3699"),
+                                           
+                    )
+        
+            # Color:
+            #     rgba:0, 0, 1, 1
+            Ellipse:
+                size:400,400
+               #pos:600,500
+                pos:[self.width-200,self.height-200]
+                texture: 
+                    Gradient.vertical(
+                    get_color_from_hex("#3E55B1"),
+                    get_color_from_hex("#3144A4"),
+                    get_color_from_hex("#2A3699"),
+                                           
+                    )
+            Color:
+                rgba:get_color_from_hex("#2A3699")
+            Ellipse:
+                size:300,300
+                pos:[self.width-100,self.height-100]
+      
+            Color:
+                rgba:get_color_from_hex("#3E55B1")
+            Ellipse:
+                size:400,400
+                # pos:-70,-70
+               # pos:[(self.center_x - (self.width - 30)/2),(self.center_y -(self.hight - 30)/2)]
+                pos:[self.width-800,self.height-1400]
+
+            Color:
+                rgba:get_color_from_hex("#3144A4")
+            Ellipse:
+                size:300,300
+                pos:[self.width-800,self.height-1400]
+            Color:
+                rgba:get_color_from_hex("#2A3699")
+            Ellipse:
+                size:200,200
+                pos:[self.width-800,self.height-1400]
+        Lyt:
+            Image:
+
+                source: 'img/travel.webp'
+                size_hint:None,None
+                pos_hint: {'center_x': 0.5,'center_y': 0.85}
+            
+        
+            MDSpinner:
+                size_hint: None, None
+                size: dp(46), dp(46)
+                pos_hint: {'center_x': .5, 'center_y': .5}
+            
+            MDProgressBar:
+                id:process_bar
+                value: 0
+                max: 100
+                color:"blue"
+                pos_hint: {'center_x': .5, 'center_y': .2}
+                size_hint: .8, None
+
+
+

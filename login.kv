@@ -1,0 +1,97 @@
+<Login_page>:
+    Box:
+        orientation:'vertical'
+        canvas.before:
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                texture: 
+                    Gradient.vertical(
+                    get_color_from_hex("#3E55B1"),
+                    get_color_from_hex("#3144A4"),
+                    get_color_from_hex("#2A3699"),
+                                           
+                    )
+        
+            # Color:
+            #     rgba:0, 0, 1, 1
+            Ellipse:
+                size:400,400
+               #pos:600,500
+                pos:[self.width-200,self.height-200]
+                texture: 
+                    Gradient.vertical(
+                    get_color_from_hex("#3E55B1"),
+                    get_color_from_hex("#3144A4"),
+                    get_color_from_hex("#2A3699"),
+                                           
+                    )
+            Color:
+                rgba:get_color_from_hex("#2A3699")
+            Ellipse:
+                size:300,300
+                pos:[self.width-100,self.height-100]
+      
+            Color:
+                rgba:get_color_from_hex("#3E55B1")
+            Ellipse:
+                size:400,400
+                # pos:-70,-70
+               # pos:[(self.center_x - (self.width - 30)/2),(self.center_y -(self.hight - 30)/2)]
+                pos:[self.width-800,self.height-1400]
+
+            Color:
+                rgba:get_color_from_hex("#3144A4")
+            Ellipse:
+                size:300,300
+                pos:[self.width-800,self.height-1400]
+            Color:
+                rgba:get_color_from_hex("#2A3699")
+            Ellipse:
+                size:200,200
+                pos:[self.width-800,self.height-1400]
+       
+        Lyt:
+            Image:
+
+                source: 'img/travel.webp'
+                size_hint:None,None
+                pos_hint: {'center_x': 0.5,'center_y': 0.85}
+
+           
+            Mcrd3:
+             
+                md_bg_color:"#3E55B1"
+                size_hint: 0.8, .4
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                line_color:"#FF5B75"
+                radius:25,25,25,25
+                elevation: 4
+                shadow_offset: 0, 2
+                Lyt:
+                    Txt1:
+                        id:user1
+                        hint_text:"username"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.8}
+                        size_hint: 0.8, None
+                    Txt1:
+                        id:pass1
+                        hint_text:"password"
+                        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+                        size_hint: 0.8, None
+
+                    MDRectangleFlatButton:
+                        text:"Login"                        
+                        pos_hint: {'center_x': 0.5,'center_y': 0.2}
+                        on_press:root.login_validate()
+            Lbl:
+                text:"kali linux"
+                halign:"center"
+                pos_hint: {'center_y': 0.73}
+                color:"white"
+ 
+            Lbl:
+                text:"kivymd"
+                halign:"center"
+                pos_hint: {'center_y': 0.15}
+                color:"#17D4A3"
