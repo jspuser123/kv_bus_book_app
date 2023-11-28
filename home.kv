@@ -1,14 +1,14 @@
 <Frist_screen>:
-
     MDBottomNavigation:
-        panel_color: "#eeeaea"
+        id:bottom_nav
+        # panel_color:app.theme_cls.theme_color
         selected_color_background: "orange"
         text_color_active: "lightgrey"
 
         MDBottomNavigationItem:
             name: 'screen 1'
-            text: 'Mail'
-            icon: 'gmail'
+            text: 'Home'
+            icon: 'home'
             badge_icon: "numeric-10"
             IBtn2:
                 icon:"dots-vertical"
@@ -24,8 +24,8 @@
                 pos_hint: {"center_x": .6, "center_y": .85}
                 font_size:"30sp"
             Crd:
-                pos_hint: {"center_x": .5, "center_y": .65}
-                size_hint:.8,.25
+                pos_hint: {"center_x": .5, "center_y": .67}
+                size_hint:.83,.25
                 md_bg_color:"blue"
                 radius:["25dp","25dp","25dp","25dp"]
                                 
@@ -41,6 +41,7 @@
                         blur_radius: 80 if self.state == "normal" else 50
                 Carousel:
                     direction: 'left'
+                    id:change_carosel_id
                     Lyt:
                         AsyncImage:
                             source: "https://i.pinimg.com/736x/7a/51/90/7a51904726a6a4991f6a53d5f4ae3ab1.jpg"
@@ -76,19 +77,117 @@
                             pos_hint: {"center_x": 1, "center_y": .5}
                             font_size:"20sp"
                             color:"pink"
-                    
-            IBtn2:
-                icon:"airplane"
-                pos_hint: {"center_x": .15, "center_y": .43}
-                md_bg_color:"yellow"
-            IBtn2:
-                icon:"train"
+                        
+                        Lbl:
+                            text: ' Iam Jagan'
+                            pos_hint: {"center_x": 1, "center_y": .9}
+                            font_size:"20sp"
+                            color:"pink"
+            Crd:
+                size_hint:.2,.18
+                pos_hint: {"center_x": .2, "center_y": .43}
+                md_bg_color:"white"
+                radius: 10, 10, 10, 10
+                padding:"5dp"
+                Lyt:
+                    radius: 10, 10, 10, 10
+                    IBtn2:
+                        icon:"airplane"
+                        md_bg_color:"pink"
+                        pos_hint: {"center_x":.5, "top":1}
+                        on_press:change_carosel_id.index+=1
+                        canvas.before:
+                            Color:
+                                rgba: 0, 0, 1, 0.85
+                            BoxShadow:
+                                pos: self.pos
+                                size: self.size
+                                offset: 0, -10
+                                spread_radius: -20, -20
+                                border_radius: 10, 10, 10, 10
+                                blur_radius: 80 if self.state == "normal" else 50
+                    Lbl:
+                        text:"airplane"
+                        font_style:'Subtitle1'
+                        pos_hint: {"center_y": .3}
+                        halign:"center"
+                        opposite_colors:True
+                    Lbl:
+                        text:"Travel"
+                        font_style:'Subtitle2'
+                        pos_hint: {"center_y": .1}
+                        halign:"center"
+                        opposite_colors:True
+
+            Crd:
+                size_hint:.2,.18
                 pos_hint: {"center_x": .5, "center_y": .43}
-                md_bg_color:"orange"
-            IBtn2:
-                icon:"bus"
-                pos_hint: {"center_x": .85, "center_y": .43}
-                md_bg_color:"skyblue"
+                md_bg_color:"white"
+                radius: 10, 10, 10, 10
+                padding:"5dp"
+                Lyt:
+                    radius: 10, 10, 10, 10
+                    IBtn2:
+                        icon:"train"
+                        pos_hint: {"center_x": .5, "top":1}
+                        md_bg_color:"orange"
+                        canvas.before:
+                            Color:
+                                rgba: 0, 0, 1, 0.85
+                            BoxShadow:
+                                pos: self.pos
+                                size: self.size
+                                offset: 0, -10
+                                spread_radius: -20, -20
+                                border_radius: 10, 10, 10, 10
+                                blur_radius: 80 if self.state == "normal" else 50
+                    Lbl:
+                        text:"Train"
+                        font_style:'Subtitle1'
+                        pos_hint: {"center_y": .3}
+                        halign:"center"
+                        opposite_colors:True
+                    Lbl:
+                        text:"Travel"
+                        font_style:'Subtitle2'
+                        pos_hint: {"center_y": .1}
+                        halign:"center"
+                        opposite_colors:True
+            Crd:
+                size_hint:.2,.18
+                pos_hint: {"center_x": .8, "center_y": .43}
+                md_bg_color:"white"
+                radius: 10, 10, 10, 10
+                padding:"5dp"
+                Lyt:
+                    radius: 10, 10, 10, 10
+                    IBtn2:
+                        icon:"bus"
+                        pos_hint: {"center_x": .5, "top":1}
+                        md_bg_color:"skyblue"
+                        on_press:app.change_screen_bus()
+                        canvas.before:
+                            Color:
+                                rgba: 0, 0, 1, 0.85
+                            BoxShadow:
+                                pos: self.pos
+                                size: self.size
+                                offset: 0, -10
+                                spread_radius: -20, -20
+                                border_radius: 10, 10, 10, 10
+                                blur_radius: 80 if self.state == "normal" else 50
+                    Lbl:
+                        text:"Bus"
+                        font_style:'Subtitle1'
+                        pos_hint: {"center_y": .3}
+                        halign:"center"
+                        opposite_colors:True
+                    Lbl:
+                        text:"Travel"
+                        font_style:'Subtitle2'
+                        pos_hint: {"center_y": .1}
+                        halign:"center"
+                        opposite_colors:True
                 
             
             Lbl:
@@ -97,101 +196,291 @@
                 font_size:"20sp"
             Lbl:
                 text: 'View all:'
-                pos_hint: {"x": .7, "center_y": .3}
+                pos_hint: {"x": .75, "center_y": .3}
                 font_size:"13sp"
                     
          
             Lyt:
                 pos_hint: {"center_x": .5, "center_y": .1}
                 size_hint:.9,.35
-                ScrollView:
-                   
+                ScrollView:                 
                     MDList:
-                        id: box
-                        OneLineAvatarListItem:
-                            text: "Single-line item with avatar"
-                            ImageLeftWidget:
-                                source: "img/travel.webp"
-                                
-                              
-                        OneLineAvatarListItem:
-                            text: "Single-line item with avatar"
-                            ImageLeftWidget:
-                                source: "img/travel.webp"
-                        OneLineAvatarListItem:
-                            text: "Single-line item with avatar"
-                            ImageLeftWidget:
-                                source: "img/travel.webp"
-                        OneLineAvatarListItem:
-                            text: "Single-line item with js"
-                            ImageLeftWidget:
-                                source: "img/travel.webp"
-                
-                    
-
-
-
-
-    
+                        padding:"3dp"
+                        spacing:"10dp"
+                        id:show_news_list
+                       
+                  
 
         MDBottomNavigationItem:
-            id:"sw2"
+          
             name: 'screen 2'
-            text: 'Twitter'
-            icon: 'twitter'
+            text: 'Booking'
+            icon: 'book'
             badge_icon: "numeric-5"
 
             MDLabel:
-                text: 'Mail'
+                text: 'Booking Now'
                 pos_hint: {"center_y": .95}
+            MDLabel:
+                id:date_display
+                text: ''
+                pos_hint: {"center_y": .95,"x": .4}
+
             Btn1:
                 text:"Date"
-                pos_hint: {"center_y": .95,"center_x": .8}
+                pos_hint: {"center_y": .95,"center_x": .91}
+                md_bg_color:"red"
                 on_press:app.show_date_picker()
 
 
             MDTabs:
+                id:tabs
                 pos_hint: {"center_x": .5, "center_y": .43}
                 
-                
-
                 Tab:
-                    title: "Tab 1"
+                    title: "From loc"
                     content_text: f"This is an example text for {self.title}"
-                    md_bg_color:"pink"
-                    Grd:
-                        cols:2
-                        md_bg_color:"red"
-                        size_hint:None,None
+                   
+                    MDScreen:
+	                    ScrollView:
+	                    	
+		                    Grd:
+		                        id:from_list
+		                        cols:2
+		                        adaptive_height: True
+		                        padding:'8dp'
+		                        spacing:'8dp'
+		                        Lbl:
+		                            text:"\n pls Date select"
+		                            
                        
-                        Lyt:
-                            Fimg:    
-                                source:"img/travel.webp"
-                    
-                        Lyt:
-                            Fimg:    
-                                source:"img/travel.webp"
-                
-                        Lyt:
-                            Fimg:    
-                                source:"img/travel.webp"
-                     
-                        Lyt:
-                            Fimg:    
-                                
-                                source:"img/travel.webp"
-
+                        
                 Tab:
-                    title: "Tab 2"
+                    title: "To Loc"
                     content_text: f"This is an example text for {self.title}"
+                    MDScreen:
+	                    ScrollView:
+		                    Grd:
+		                        id:to_list
+		                        cols:2
+		                        padding:'8dp'
+		                        spacing:'8dp'
+                                adaptive_height: True
+                Tab:
+                    title: "avl bus"
+                    content_text: f"This is an example text for {self.title}"
+                    MDScreen:
+	                    ScrollView:
+                            Grd:
+                                id:avl_bus_id
+                                cols:1
+		                        padding:'8dp'
+		                        spacing:'8dp'
+                                adaptive_height: True
+                Tab:
+                    title: "seet bus"
+                    content_text: f"This is an example text for {self.title}"
+                    spacing: "8dp"
+				    padding: "8dp"
+                    Crd:
+                    	size_hint:.95,.15
+                        pos_hint: {"center_y": .9,"center_x": .5}
+                        padding:"5dp"
+                        md_bg_color:"white"
+                        
+                        Lyt:
+                            IBtn2:
+                                icon:"checkbox-blank"
+                                pos_hint: {"center_y": .8,"center_x": .1}
+                                theme_text_color:"Custom"
+                                text_color:"blue"
+                                icon_size:"30sp"
+                            Lbl:
+                                text:"unselect"
+                                color:"blue"
+
+                            IBtn2:
+                                icon:"checkbox-blank"
+                                pos_hint: {"center_y": .8,"center_x": .5}
+                                theme_text_color:"Custom"
+                                text_color:"pink"
+                                icon_size:"30sp"
+
+                            Lbl:
+                                text:"select"
+                                halign:"center"
+                                color:"pink"
+                                
+                            IBtn2:
+                                icon:"checkbox-blank"
+                                pos_hint: {"center_y": .8,"center_x": .94}
+                                theme_text_color:"Custom"
+                                text_color:"grey"
+                                icon_size:"30sp"
+
+                            Lbl:
+                                text:"booked"
+                                halign:"right"
+                                color:"black"
+                    Crd:
+                    	size_hint:.95,.53
+                        pos_hint: {"center_y": .55,"center_x": .5}
+                        md_bg_color:"white"
+	                    ScrollView:
+                            size_hint:1,.9
+                            pos_hint: {"center_y": .5,"center_x": .5}
+		                    Grd:
+				                id: seet_list_add_id
+				                cols: 5
+				                spacing: "8dp"
+				                padding: "8dp"
+				                adaptive_height:self.minimum_height
+                    
+		            Crd:
+                        size_hint:.95,.2
+                        pos_hint: {"center_y": .18,"center_x": .5}
+                        md_bg_color:"white"
+                        Crd:
+                            md_bg_color:"white" 
+                            MDScrollView:
+                                MDList:
+                                    id:seet_booking_id
+                                    
+                        Crd:
+                            md_bg_color:"white" 
+                            Lyt:      
+                                Lbl:
+                                    text:"Price"
+                                    opposite_colors:True
+                                    halign:"left"
+                                    pos_hint:{"center_y":.9}
+
+                                Lbl:
+                                    id:price_display
+                                    text:"$"
+                                    opposite_colors:True
+                                    halign:"right"
+                                    pos_hint:{"center_y":.9}
+
+                                Btn2:
+                                    id:conform_seeet_btn
+                                    opacity:0
+                                    text:"conform seet  >"
+                                    font_style:"Button"
+                                    pos_hint: {"left":.5,"bottom":1}
+                                    on_press:app.table_fun()
+                Tab:
+                    title: "table screen"
+                    content_text: f"This is an example text for {self.title}"
+                    MDScreen:
+                        Box:
+                            size_hint_y:.6
+                            pos_hint: {"top":1}
+                            id:table_add
+
+                        Box:
+                            size_hint_y:.4    
+                            Lyt:
+                                Btn1:
+                                    id:add_table_btn
+                                    text:"Add"
+                                    pos_hint: {"center_x": .15,"center_y":.7}
+                                    size_hint_x:.3
+                                    on_press:app.dialogfun()
+                                    opacity:0
+                                Btn1:
+                                    id:edit_table_btn
+                                    text:"Edit"
+                                    pos_hint: {"center_x": .5,"center_y":.7}
+                                    size_hint_x:.3
+                                    on_press:app.form_edit()
+                                    md_bg_color:"orange"
+                                    opacity:0
+                                Btn1:
+                                    id:delete_table_btn
+                                    text:"Delete"
+                                    pos_hint: {"center_x": .85,"center_y":.7}
+                                    size_hint_x:.3
+                                    on_press:app.remove_row()
+                                    md_bg_color:"red"
+                                    opacity:0
+                                Btn1:
+                                    id:checkout_table_btn
+                                    text:"Check out"
+                                    pos_hint: {"center_x": .5,"center_y":.4}
+                                    size_hint_x:.5
+                                    on_press:app.checkout()
+                                    md_bg_color:"blue"
+                                    opacity:0
+                                
+                Tab:
+                    title: "check_screen"
+                    content_text: f"This is an example text for {self.title}"
+                    MDScreen:
+                        # pos_hint: {"top":1}
+                        spacing: "5dp"
+				        padding: "5dp"
+                        id:check_screen_id                        
 
         MDBottomNavigationItem:
             name: 'screen 3'
-            text: 'LinkedIN'
+            text: 'tickets'
             icon: 'linkedin'
-
-            Img:
-                source:"img/travel.webp"
+            Box:
+                Lyt:
+                    md_bg_color:"teal"
+                    pos_hint:{"top":1}
+                    ScrollView:                 
+                        MDList:
+                            id:tickets_showing_id
+                            padding:"8dp"
+                            spacing:"8dp"
+                            Btn2:
+                                md_bg_color:"red"
+                                text:"Show Tickets"
+                                on_press:app.tickets_add_card()
+                            
+                                
+                          
+           
+          
+                    
+            
 
 
 <Tab>
+<Content>
+    orientation: "vertical"
+    adaptive_height: True
+    size_hint_y: None
+    height: "300dp"
+    sc:sc
+    Lyt:
+        size_hint_y:None
+        height: "300dp"
+        
+        MDTextField:
+            hint_text: "Name"
+            pos_hint: {"center_y":.83}
+            id:sc
+        
+        Lbl:
+            text:"Male"
+            pos_hint: {"x": .01,"center_y":.65}
+            
+        Check:
+            active: True
+            pos_hint: {"center_x": .4,"center_y":.65}
+            id:passager_male_true
+    
+        Lbl:
+            text:"Female"
+            pos_hint: {"x": .01,"center_y":.5}
+        Check:
+            pos_hint: {"center_x": .4,"center_y":.5}
+            id:passager_female_true
+                
+        MDTextField:
+            pos_hint: {"center_y":.37}
+            hint_text: "Age"
+            id:passager_age  

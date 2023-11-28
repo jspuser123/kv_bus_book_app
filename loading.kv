@@ -2,7 +2,7 @@
 #:import Gradient kivy_gradient.Gradient
 
 <Box@MDBoxLayout>:
-    id:boxcolor
+ 
     spacing:"3dp"
     padding:'2dp'
 <Grd@MDGridLayout>:
@@ -10,14 +10,20 @@
 <Lyt@MDRelativeLayout>:
 <Crd@MDCard>:     
 <Txt1@MDTextField>:
-    id:txtin
+
     md_bg_color:app.theme_cls.primary_palette
 
 <IBtn2@MDIconButton>:
 <Btn1@MDRaisedButton>:
+<Btn2@MDRaisedButton>:
 <Lbl@MDLabel>:
 <Img@Image>:
 <Fimg@FitImage>:
+<Check@MDCheckbox>:
+    group: 'group'
+    size_hint: None, None
+    size: dp(48), dp(48)
+    
 
 <Loading_screen>:
     Box:
@@ -74,7 +80,7 @@
         Lyt:
             Image:
 
-                source: 'img/travel.webp'
+                source: 'img/bus_bid2.png'
                 size_hint:None,None
                 pos_hint: {'center_x': 0.5,'center_y': 0.85}
             
