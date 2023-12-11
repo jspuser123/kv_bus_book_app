@@ -2,3 +2,5 @@ kivy
 kivymd
 KivyGradient
 plyer
+sqlite3
+python-firebase
